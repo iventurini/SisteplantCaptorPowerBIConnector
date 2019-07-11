@@ -1,4 +1,4 @@
-﻿// This file contains your Data Connector logic
+﻿// POWER BI DATA CONNECTOR FOR SISTEPLANT CAPTOR SOAP WEBSERVICE
 section Captor;
 
 [DataSource.Kind="Captor", Publish="Captor.Publish"]
@@ -36,7 +36,7 @@ Captor.Type = type function (
         Documentation.AllowedValues = { "GetCurrentWorkplaceGroupState", "GetCurrentWorkplaceHistory","GetCurrentWorkplaceKpis", "GetCurrentWorkplaceManufacturingPhases","GetCurrentWorkplaceState","GetCurrentWorkplaceWorkers"}
     ]))
     as table meta [
-        Documentation.Name = "Captor",
+        Documentation.Name = "Captor SOAP Connector",
         Documentation.LongDescription = "Captor SOAP connector"
     ];
 
@@ -74,8 +74,7 @@ GetAction  = (site as text, sessionid as text ,captorwp as text, captorws as tex
     ])),
     Table = envelope{0}[Table],
     Table1 = Table{0}[Table],
-    Table2 = Table1{0}[Table],
-    source = Table2{0}[Table]
+    source = Table1{0}[Table]
     in
         source;
 
